@@ -31,7 +31,7 @@ data "google_service_account" "preexisting" {
 }
 
 module "github-wif" {
-  source = "../../GitHub/terraform-google-workload-identity-federation"
+  source = "mscribellito/workload-identity-federation/google"
 
   project_id = var.project_id
 
