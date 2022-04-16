@@ -66,7 +66,6 @@ variable "provider_disabled" {
 variable "attribute_mapping" {
   type        = map(any)
   description = "Workload Identity Pool Provider attribute mapping"
-  default     = {}
 }
 
 variable "attribute_condition" {
@@ -95,5 +94,4 @@ variable "service_accounts" {
     all_identities = bool
   }))
   description = "Service Account resource names and corresponding provider attributes"
-  default     = null
 }
