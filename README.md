@@ -26,6 +26,34 @@ Required APIs & Services:
 ## Usage
 
 ```hcl
+data "google_service_account" "preexisting" {
+  account_id = "preexisting"
+}
+
+module "github-wif" {
+  source = "../../GitHub/terraform-google-workload-identity-federation"
+
+  project_id = var.project_id
+
+  pool_id     = "github-pool"
+  provider_id = "github-provider"
+
+  attribute_mapping = {
+    "google.subject"       = "assertion.sub"
+    "attribute.actor"      = "assertion.actor"
+    "attribute.aud"        = "assertion.aud"
+    "attribute.repository" = "assertion.repository"
+  }
+  issuer_uri = "https://token.actions.githubusercontent.com"
+
+  service_accounts = [
+    {
+      name           = data.google_service_account.preexisting.name
+      attribute      = "attribute.repository/my-org/my-repo"
+      all_identities = true
+    }
+  ]
+}
 ```
 
 ## Inputs
