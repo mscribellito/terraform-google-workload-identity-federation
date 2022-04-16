@@ -45,7 +45,7 @@ Required APIs & Services:
 | attribute_condition | Workload Identity Pool Provider attribute condition expression | `string` | `null` | no
 | allowed_audiences | Workload Identity Pool Provider allowed audiences | `list(string)` | `[]` | no
 | issuer_uri | Workload Identity Pool Provider issuer URL | `string` | n/a | yes
-| service_accounts | Service Account resource names and corresponding provider attributes | <pre>list(object({<br>    name      = string<br>    attribute = string<br>}))</pre> | `null` | no
+| service_accounts | Service Account resource names and corresponding provider attributes | <pre>list(object({<br>  name      = string<br>  attribute = string<br>}))</pre> | `null` | no
 
 ## Outputs
 
