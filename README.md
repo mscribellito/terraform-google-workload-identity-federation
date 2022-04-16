@@ -4,6 +4,16 @@ Terraform module to to configure [workload identity federation](https://cloud.go
 
 ## Purpose
 
+Traditionally, applications running outside Google Cloud have used long-lived JSON service account keys to access Google Cloud resources. Service account keys are powerful credentials and can represent a security risk if they are not managed correctly.
+
+Benefits of identity federation include:
+
+* Fine-grained scoping
+* Short-lived credentials
+* Minimal management overhead
+
+Identity federation also allows the use of service accounts for authentication when key creation is disabled via organization policy constraints like `constraints/iam.disableServiceAccountKeyCreation`.
+
 ## Requirements
 
 Required APIs & Services:
