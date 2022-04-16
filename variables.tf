@@ -90,8 +90,9 @@ variable "issuer_uri" {
 
 variable "service_accounts" {
   type = list(object({
-    name      = string
-    attribute = string
+    name           = string
+    attribute      = string
+    all_identities = bool
   }))
   description = "Service Account resource names and corresponding provider attributes"
   default     = null

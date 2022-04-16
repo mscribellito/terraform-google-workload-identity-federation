@@ -37,6 +37,6 @@ resource "google_service_account_iam_member" "member" {
   for_each = { for index, account in var.service_accounts : index => account }
 
   service_account_id = each.value.name
-  member             = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.pool.name}/${each.value.attribute}"
+  member             = "${each.value.all_identities == false ? "principal" : "principalSet"}://iam.googleapis.com/${google_iam_workload_identity_pool.pool.name}/${each.value.attribute}"
   role               = "roles/iam.workloadIdentityUser"
 }
